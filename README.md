@@ -1,70 +1,148 @@
-# Getting Started with Create React App
+## **_Website_**:[https://durgaappointapp.ccbp.tech/](https://durgaappointapp.ccbp.tech/)🔗
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this project, let's build an **Appointments App** by applying the concepts we have learned till now.
 
-## Available Scripts
+### Refer to the image below:
 
-In the project directory, you can run:
+<br/>
+<div style="text-align: center;">
+    <img src="https://assets.ccbp.in/frontend/content/react-js/appointments-app-output.gif" alt="appointments app output" style="max-width:70%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
+</div>
+<br/>
 
-### `npm start`
+### Design Files
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<details>
+<summary>Click to view</summary>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Extra Small (Size < 576px) and Small (Size >= 576px)](https://assets.ccbp.in/frontend/content/react-js/appointments-app-sm-output-v2.png)
+- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px)](https://assets.ccbp.in/frontend/content/react-js/appointments-app-lg-output.png)
 
-### `npm test`
+</details>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Set Up Instructions
 
-### `npm run build`
+<details>
+<summary>Click to view</summary>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Download dependencies by running `npm install`
+- Start up the app using `npm start`
+</details>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Completion Instructions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<details>
+<summary>Functionality to be added</summary>
+<br/>
 
-### `npm run eject`
+The app must have the following functionalities
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Initially, the list of appointments should be empty and the title input and date input should be empty
+- When non-empty values are provided for title and date and the **Add** button is clicked,
+  - A new appointment should be added to the list of appointments
+  - The value inside the input elements for title and date should be updated to their initial values
+- When the **Star** on an appointment is clicked, the appointment should be starred
+- The status of the **Starred** filter is updated by clicking on it
+- When the **Starred** filter is active, all the starred appointments should be filtered and displayed
+- When the **Starred** filter is inactive, the list of all appointments should be displayed
+</details>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<details>
+<summary>Components Structure</summary>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<br/>
+<div style="text-align: center;">
+    <img src="https://assets.ccbp.in/frontend/content/react-js/appointments-app-component-breakdown-structure.png" alt="component structure" style="max-width:100%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
+</div>
+<br/>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+</details>
 
-## Learn More
+<details>
+<summary>Implementation Files</summary>
+<br/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Use these files to complete the implementation:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `src/components/Appointments/index.js`
+- `src/components/Appointments/index.css`
+- `src/components/AppointmentItem/index.js`
+- `src/components/AppointmentItem/index.css`
+</details>
 
-### Code Splitting
+### Quick Tips
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<details>
+<summary>Click to view</summary>
+<br>
 
-### Analyzing the Bundle Size
+- The HTML input element with the type `date` is designed for the user to select the date from a date picker
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  ```jsx
+  <input type="date" />
+  ```
 
-### Making a Progressive Web App
+- The `format` function in the date-fns package can be used to get the formatted date string in the given format
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+  ```jsx
+  import {format} from 'date-fns'
 
-### Advanced Configuration
+  console.log(format(new Date(2021, 19, 07), 'dd MMMM yyyy, EEEE')) // 19 July 2021, Monday
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+</details>
 
-### Deployment
+### Important Note
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<details>
+<summary>Click to view</summary>
 
-### `npm run build` fails to minify
+<br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**The following instructions are required for the tests to pass**
+
+- For the `format` function, pass the format string `dd MMMM yyyy, EEEE` as the second argument
+- The star button in each appointment should have the data-testid as **star**
+- The star image in each appointment should have alt as **star**
+
+</details>
+
+### Resources
+
+<details>
+<summary>Image URLs</summary>
+
+- [https://assets.ccbp.in/frontend/react-js/appointments-app/appointments-img.png](https://assets.ccbp.in/frontend/react-js/appointments-app/appointments-img.png) alt should be **appointments**
+- [https://assets.ccbp.in/frontend/react-js/appointments-app/star-img.png](https://assets.ccbp.in/frontend/react-js/appointments-app/star-img.png)
+- [https://assets.ccbp.in/frontend/react-js/appointments-app/filled-star-img.png](https://assets.ccbp.in/frontend/react-js/appointments-app/filled-star-img.png)
+
+</details>
+
+<details>
+<summary>Colors</summary>
+
+<br/>
+
+<div style="background-color: #9796f0; width: 150px; padding: 10px; color: black">Hex: #9796f0</div>
+<div style="background-color: #fbc7d4; width: 150px; padding: 10px; color: black">Hex: #fbc7d4</div>
+<div style="background-color: #ffffff; width: 150px; padding: 10px; color: black">Hex: #ffffff</div>
+<div style="background-color: #171f46; width: 150px; padding: 10px; color: white">Hex: #171f46</div>
+<div style="background-color: #8b5cf6; width: 150px; padding: 10px; color: black">Hex: #8b5cf6</div>
+<div style="background-color: #b5b7c4; width: 150px; padding: 10px; color: black">Hex: #b5b7c4</div>
+<div style="background-color: #9897f0; width: 150px; padding: 10px; color: black">Hex: #9897f0</div>
+
+</details>
+
+<details>
+<summary>Font-families</summary>
+
+- Roboto
+
+</details>
+
+> ### _Things to Keep in Mind_
+>
+> - All components you implement should go in the `src/components` directory.
+> - Don't change the component folder names as those are the files being imported into the tests.
+> - **Do not remove the pre-filled code**
+> - Want to quickly review some of the concepts you’ve been learning? Take a look at the Cheat Sheets.
